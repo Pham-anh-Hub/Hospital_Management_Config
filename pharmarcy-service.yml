@@ -1,0 +1,27 @@
+spring:
+    application:
+        name: pharmarcy-service
+    config:
+        import: optional:configserver:http://localhost:8888
+
+    datasource:
+        password: 123456789
+        username: app_user
+        url: jdbc:mysql://localhost:3315/pharmacy_db
+
+    jpa:
+        properties:
+            hibernate:
+                show-sql: true
+                dialect: org.hibernate.dialect.MySQLDialect
+        hibernate:
+            ddl-auto: update
+
+eureka:
+    client:
+        register-with-eureka: true
+        service-url:
+            defaultZone: http://localhost:8761/eureka/
+        fetch-registry: true
+server:
+    port: 8086
